@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { myFetch } from '../../helpers/fetch';
 
 const ProductDetails = () => {
-    const [apiData, setApiData] = useState([])
+    const [Data, setApiData] = useState([])
     let { productId } = useParams();
 
     const getProduct = async () => {
@@ -23,14 +23,14 @@ const ProductDetails = () => {
         <>
             <h1>Products</h1>
             <section>
-                {apiData.item ? (
+                {Data.item ? (
                     <div>
-                        <h2>{apiData.item.name}</h2>
-                        {apiData.item.image.fullpath ? (
-                            <img src={apiData.item.image.fullpath} alt="product img." />
+                        <h2>{Data.item.name}</h2>
+                        {Data.item.image.fullpath ? (
+                            <img src={Data.item.image.fullpath} alt="product img." />
                         ) : ('')}
-                        <p>{apiData.item.description_long}</p>
-                        {apiData.item.gallery.map((image, key) => {
+                        <p>{Data.item.description_long}</p>
+                        {Data.item.gallery.map((image, key) => {
                             return (
                                 <p key={key}>
                                     <img src={image.fullpath} alt="product desc." />

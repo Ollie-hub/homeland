@@ -1,22 +1,28 @@
-* {
-    padding: 0;
-    margin: 0;
-}
+@import '../../App.scss';
 
 nav {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px;
+    display: grid;
+    grid-template-columns: auto 70%;
+    justify-content: center;
+    padding: 20px;
+    background-image: url('../../img/header-bg.svg');
+    background-size: cover;
+    height: 12vh;
 }
 
+.logo {
+    height: 70%;
+    margin-left: 15%;
+}
 .nav-ul {
-    display: flex; 
+    display: grid;
+    grid-template-columns: auto auto auto; 
+    align-content: space-between;
     align-items: center;
     justify-content: center;
     padding: 0;
     list-style-type: none;
+    margin-left: 25%;
 
     .link {
         a {
@@ -25,8 +31,8 @@ nav {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         padding: 10px 20px;
         text-decoration: none; 
-    }}
-
+        }
+    }
 }
 
 .hamburger {
@@ -48,6 +54,14 @@ nav {
         display: none;
         width: 100%;
         flex-direction: column;
+        position: fixed;
+        top: 100px;
+        left: 0;
+        padding: 0;
+        
+    }
+    .logo {
+       display: none;
     }
     .nav-ul.show {
         display: flex;
@@ -62,7 +76,7 @@ nav {
         width: 100%;
         justify-content: center;
         align-items: center;
-        background-color: transparent; //backround for mobile links 
+        background-color: #000; //backround for mobile links 
     }
     
 

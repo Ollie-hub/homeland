@@ -4,10 +4,10 @@ import { useEffect } from 'react';
 import { myFetch } from '../../helpers/fetch';
 
 const ProductList = () => {
-    const [apiData, setApiData] = useState([])
+    const [Data, setApiData] = useState([])
 
     const fetchProducts = async () => {
-        const url = 'https://api.mediehuset.net/stringsonline/products/group/3';
+        const url = 'https://api.mediehuset.net/homelands/homes';
         const data = await myFetch(url);
         setApiData(data)
         console.log(data);
@@ -20,10 +20,10 @@ const ProductList = () => {
     return (
         <>
             <section>
-                {apiData.group ? (
+                {Data.group ? (
                     <div>
-                        <h1>{apiData.group.title}</h1>
-                        <p>{apiData.group.title}</p>
+                        <h1>{Data.group.title}</h1>
+                        <p>{Data.group.title}</p>
                     </div>
                 ) : (
                     <p>No Products found</p>
@@ -32,7 +32,7 @@ const ProductList = () => {
 
             <section>
                 <ul>
-                    {apiData.products && apiData.products.map((product, key) => {
+                    {Data.products && Data.products.map((product, key) => {
                         return (
                             <li key={key}>
                                 <Link to={`/products/${product.id}`}>

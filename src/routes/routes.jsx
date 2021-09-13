@@ -1,23 +1,17 @@
 import { Route, Redirect, Switch } from 'react-router-dom'
 import { ProductList } from '../components/products/ProductList'
-import { StandardForm } from '../components/form/Form'
 import { Login } from '../components/login/Login'
-import { Cart } from '../components/Cart/Cart'
+import { FrontPage } from '../pages/frontpage/frontPage'
+
 
 export const Routes = () => {
     return (
         <Switch>
             <Route path='/Frontpage'>
-
+                <FrontPage />
             </Route>
-            <Route path='/Products'>
+            <Route path='/Housesforsale'>
                 <ProductList />
-            </Route>
-            <Route path='/Form'>
-                <StandardForm />
-            </Route>
-            <Route path="Cart">
-                <Cart />
             </Route>
             <Route path="/Login">
                 <Login />

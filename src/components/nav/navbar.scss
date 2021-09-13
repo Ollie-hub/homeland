@@ -2,12 +2,14 @@
 
 nav {
     display: grid;
+    position: sticky;
     grid-template-columns: auto 70%;
     justify-content: center;
     padding: 20px;
     background-image: url('../../img/header-bg.svg');
     background-size: cover;
     height: 12vh;
+    z-index: 2;
 }
 
 .logo {
@@ -28,7 +30,8 @@ nav {
         a {
         display: inline-block;
         color: #fff;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: $header-font;
+        font-size: 28px;
         padding: 10px 20px;
         text-decoration: none; 
         }

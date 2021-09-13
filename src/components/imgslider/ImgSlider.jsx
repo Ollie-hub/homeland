@@ -1,39 +1,49 @@
-import { useState, useParams, useEffect } from 'react'
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
-import { myFetch } from '../../helpers/fetch'
+import React, { useState } from 'react'
+import './imgslider.scss'
+import { BtnSlider } from './BtnSlider'
+import { SliderData } from './SliderData'
 
-const ImgSlider = ({ slides }) => {
+const ImgSlider = () => {
 
-    const [current, setCurrent] = useState(0)
-    const length = slides.length
+    const [slideIndex, setSlideIndex] = useState(1)
 
-    const [SliderData, setApiData] = useState([])
-
-
-    const getProduct = async () => {
-        const url = `https://api.mediehuset.net/homelands/images${0}`;
-        const data = await myFetch(url);
-        setApiData(data)
-        console.log(data)
+    const nextSlide = () => {
+        if (slideIndex !== SliderData.length) {
+            setSlideIndex(slideIndex + 1)
+        }
+        else if (slideIndex === SliderData.length) {
+            setSlideIndex(1)
+        }
     }
 
-    useEffect(() => {
-        getProduct();
-    }, [])
+    const prevSlide = () => {
+        if (slideIndex !== 1) {
+            setSlideIndex(slideIndex - 1)
+        }
+        else if (slideIndex === 1) {
+            setSlideIndex(SliderData.length)
+        }
+    }
 
     return (
-        <section>
-            <FaArrowAltCircleLeft className="left-arrow" />
-            <FaArrowAltCircleRight className="right-arrow" />
-
-            {SliderData.map((slide, index) => {
+        <div className="container-slider">
+            {SliderData.map((obj, index) => {
                 return (
-                    <img src={slide.image} alt={slide.alt} />
+                    <div
+                        key={obj.id}
+                        className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
+                    >
+                        <img
+                            src={obj.image}
+                            alt="bannerimg"
+                        />
+                    </div>
                 )
             })}
-        </section>
-    );
-
-};
+            <BtnSlider moveSlide={nextSlide} direction={"next"} />
+            <BtnSlider moveSlide={prevSlide} direction={"prev"} />
+        </div>
+    )
+}
 
 export { ImgSlider };

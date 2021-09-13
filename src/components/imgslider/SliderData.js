@@ -1,12 +1,17 @@
-import { img1 } from '../../img/sliderimage1.png'
-import { img2 } from '../../img/sliderimage2.png'
-export const SliderData = [
+import img1 from './sliderimage1.png'
+import img2 from './sliderimage2.png'
+
+const SliderData = [
     {
-        image: { img1 },
+        id: 1,
+        image: img1,
         alt: 'Banner image'
     },
     {
-        image: { img2 },
+        id: 2,
+        image: img2,
         alt: 'Banner image'
     }
 ]
+
+export { SliderData };

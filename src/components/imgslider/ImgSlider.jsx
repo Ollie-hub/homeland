@@ -1,17 +1,31 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './imgslider.scss'
 import { BtnSlider } from './BtnSlider'
-import { SliderData } from './SliderData'
+import { myFetch } from '../../helpers/fetch'
 
 const ImgSlider = () => {
+
+    const [sliderData, setSliderData] = useState([])
+    //fetching the images for the slider
+
+    const url = 'https://api.mediehuset.net/homelands/images'
+    const getSliderData = async () => {
+        let res = await myFetch(url)
+        setSliderData(res)
+        console.log(res)
+    }
+    useEffect(() => {
+        getSliderData()
+    }, [])
+
 
     const [slideIndex, setSlideIndex] = useState(1)
 
     const nextSlide = () => {
-        if (slideIndex !== SliderData.length) {
+        if (slideIndex !== sliderData.items.length) {
             setSlideIndex(slideIndex + 1)
         }
-        else if (slideIndex === SliderData.length) {
+        else if (slideIndex === sliderData.items.length) {
             setSlideIndex(1)
         }
     }
@@ -21,20 +35,19 @@ const ImgSlider = () => {
             setSlideIndex(slideIndex - 1)
         }
         else if (slideIndex === 1) {
-            setSlideIndex(SliderData.length)
+            setSlideIndex(sliderData.items.length)
         }
     }
-
     return (
         <div className="container-slider">
-            {SliderData.map((obj, index) => {
+            {sliderData.items && sliderData.items.map((data, i) => {
                 return (
                     <div
-                        key={obj.id}
-                        className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
+                        key={i}
+                        className={slideIndex === i + 1 ? "slide active-anim" : "slide"}
                     >
                         <img
-                            src={obj.image}
+                            src={data.image[1]}
                             alt="bannerimg"
                         />
                     </div>
@@ -45,5 +58,6 @@ const ImgSlider = () => {
         </div>
     )
 }
+
 
 export { ImgSlider };

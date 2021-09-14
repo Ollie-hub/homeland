@@ -39,7 +39,7 @@ const ImgSlider = () => {
         }
     }
     return (
-        <div className="container-slider">
+        <article className="container-slider">
             {sliderData.items && sliderData.items.map((data, i) => {
                 return (
                     <div
@@ -55,7 +55,7 @@ const ImgSlider = () => {
             })}
             <BtnSlider moveSlide={nextSlide} direction={"next"} />
             <BtnSlider moveSlide={prevSlide} direction={"prev"} />
-        </div>
+        </article>
     )
 }
 

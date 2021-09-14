@@ -1,4 +1,5 @@
 import { ImgSlider } from "../../components/imgslider/ImgSlider";
+import { NewsProducts } from "../../components/newsproducts/NewsProducts";
 
 
 
@@ -7,7 +8,7 @@ const FrontPage = () => {
         <>
             <main>
                 <ImgSlider />
-
+                <NewsProducts />
 
 
             </main>

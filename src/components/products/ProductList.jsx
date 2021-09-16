@@ -1,49 +1,42 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import { myFetch } from '../../helpers/fetch';
+import { useEffect } from "react";
+import { useState } from "react/cjs/react.development";
+import { myFetch } from "../../helpers/fetch";
+import { Products } from "./Products";
+import './Products.scss'
 
 const ProductList = () => {
-    const [Data, setApiData] = useState([])
 
-    const fetchProducts = async () => {
-        const url = 'https://api.mediehuset.net/homelands/homes';
-        const data = await myFetch(url);
-        setApiData(data)
-        console.log(data);
+    const [news, setNews] = useState([])
+
+    const url = 'https://api.mediehuset.net/homelands/homes'
+
+    const getNews = async () => {
+        let res = await myFetch(url)
+        setNews(res)
     }
+
     useEffect(() => {
-        fetchProducts()
+        getNews()
     }, [])
 
 
     return (
-        <>
-            <section>
-                {Data.group ? (
-                    <div>
-                        <h1>{Data.group.title}</h1>
-                        <p>{Data.group.title}</p>
-                    </div>
-                ) : (
-                    <p>No Products found</p>
-                )}
+        <article className="news-section">
+            <section className="news-grid">
+                {news.items && news.items.map((item, i) => {
+                    if (i < 3) {
+                        return (
+                            <Products data={item} />
+                        )
+                    }
+                    else {
+                        return null
+                    }
+                })
+                }
             </section>
 
-            <section>
-                <ul>
-                    {Data.products && Data.products.map((product, key) => {
-                        return (
-                            <li key={key}>
-                                <Link to={`/products/${product.id}`}>
-                                    {product.name}
-                                </Link>
-                            </li>
-                        )
-                    })}
-                </ul>
-            </section>
-        </>
+        </article>
     )
 }
 

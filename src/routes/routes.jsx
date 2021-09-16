@@ -1,20 +1,24 @@
 import { Route, Redirect, Switch } from 'react-router-dom'
+import { ProductDetails } from '../components/products/ProductDetails'
 import { ProductList } from '../components/products/ProductList'
-import { Login } from '../components/login/Login'
 import { FrontPage } from '../pages/frontpage/frontPage'
+import { LoginPage } from '../pages/loginpage/loginPage'
 
 
 export const Routes = () => {
     return (
         <Switch>
-            <Route path='/Frontpage'>
+            <Route path='/Frontpage' exact>
                 <FrontPage />
             </Route>
-            <Route path='/Housesforsale'>
+            <Route path='/Housesforsale' exact>
                 <ProductList />
             </Route>
-            <Route path="/Login">
-                <Login />
+            <Route path='/Housesforsale/:HouseAddress' exact>
+                <ProductDetails />
+            </Route>
+            <Route path="/Login" exact>
+                <LoginPage />
             </Route>
 
 

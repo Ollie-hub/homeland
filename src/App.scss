@@ -6,8 +6,34 @@ $standard-font: 'Trebuchet MS' ;
 $brown: #af7627;
 $pink: #fed9c9;
 $black: #000;
+$card-hover: rgba(175,118,39, 0.8);
+//Energy colors
+$color-class-a: #63aa5a;
+$color-class-b: #7bae4a;
+$color-class-c: #ffe731;
+$color-class-d: #fbb900;
+$color-class-e: #fb8800;
+$color-class-f: #e30613;
+
+
+@mixin ProductCards {
+    background-color: rgba(255,255,255, 0.8);
+    width: 25vw;
+    height: 70%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+
+}
+
+@mixin CardContent {
+  margin: 2%;
+  margin-left: 5%;
+  font-family: $standard-font;
+}
 
 
 * {
   font-family: 'Trebuchet MS', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }

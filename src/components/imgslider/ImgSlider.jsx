@@ -12,7 +12,6 @@ const ImgSlider = () => {
     const getSliderData = async () => {
         let res = await myFetch(url)
         setSliderData(res)
-        console.log(res)
     }
     useEffect(() => {
         getSliderData()

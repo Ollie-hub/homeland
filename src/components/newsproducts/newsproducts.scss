@@ -1,2 +1,32 @@
 @import '../../App.scss';
 
+.news-section {
+    display: grid;
+    width: 90vw;
+    height: 40vh;
+    position: relative;
+    top:-100px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 90vw;
+    margin: auto;
+    
+    height: 100%;
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .news-grid {
+        display: grid;
+        grid-template-rows: auto auto auto;
+        grid-template-columns: none;
+        justify-content: center;
+    
+        }
+
+    
+}

@@ -18,7 +18,7 @@ const ReviewForm = () => {
         formData.append('content', data.content)
         formData.append('user_id', data.user_id)
         formData.append('active', true)
-        formData.append('num_stars', 1)
+        formData.append('num_stars', 4)
 
         const url = `https://api.mediehuset.net/homelands/reviews`
         const options = {

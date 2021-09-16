@@ -1,10 +1,23 @@
 import { useState, useEffect, useContext } from 'react'
 import { AuthContext } from '../login/AuthProvider'
 import { myFetch } from '../../helpers/fetch'
+import './reviews.scss'
+import { useHistory } from 'react-router'
 
 const ReviewList = (props) => {
     const [apiData, setApiData] = useState()
-    const { loginData } = useContext(AuthContext)
+    const { loginData, open, setOpen } = useContext(AuthContext)
+    const history = useHistory()
+
+    const routeChange = () => {
+        history.push(``)
+
+    }
+
+    const toggleClass = () => {
+        setOpen(!open)
+        console.log(open)
+    }
     const id = props.itemId;
 
     const getData = async () => {
@@ -38,9 +51,16 @@ const ReviewList = (props) => {
                 {apiData && apiData.items.slice(apiData.items.length - 1, apiData.items.length).map((item, key, i) => {
 
                     return (
-                        <section key={key}>
-                            <li >{item.title}</li>
-                        </section>
+                        <article className="review-section" key={key}>
+                            <section >
+                                <h3 >{item.title}</h3>
+                                <p>{item.content}</p>
+                                <p>{item.user.firstname} {item.user.lastname}</p>
+                            </section>
+                            {loginData ? <button onClick={() => toggleClass()} className="reviewbutton">Skriv Andmeldelse</button> :
+                                <button onClick={this.routeChange}></button>}
+                        </article>
+
 
 
                     )

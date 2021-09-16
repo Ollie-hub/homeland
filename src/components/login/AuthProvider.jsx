@@ -6,6 +6,7 @@ const AuthProvider = ({ children }) => {
 
     const [loginData, setLoginData] = useState('');
     const [houseDetails, setHouseDetails] = useState({})
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         if (sessionStorage.getItem('token')) {
@@ -14,7 +15,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     return (
-        <AuthContext.Provider value={{ loginData, setLoginData, houseDetails, setHouseDetails }}>
+        <AuthContext.Provider value={{ loginData, setLoginData, houseDetails, setHouseDetails, open, setOpen }}>
             {children}
         </AuthContext.Provider>
     )

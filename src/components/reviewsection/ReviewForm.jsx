@@ -4,10 +4,11 @@ import { myFetch } from '../../helpers/fetch'
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../login/AuthProvider'
 import { useHistory } from 'react-router';
+import './reviews.scss'
 
 const ReviewForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { loginData } = useContext(AuthContext)
+    const { loginData, open } = useContext(AuthContext)
     const history = useHistory()
 
     const onSubmit = async (data, e) => {
@@ -19,7 +20,7 @@ const ReviewForm = () => {
         formData.append('user_id', data.user_id)
         formData.append('active', true)
         formData.append('num_stars', 4)
-
+        console.log(formData)
         const url = `https://api.mediehuset.net/homelands/reviews`
         const options = {
             method: 'POST',
@@ -38,7 +39,6 @@ const ReviewForm = () => {
             console.error(error);
         }
     }
-
     const resetInputs = () => {
         const inputs = [...document.querySelectorAll(".required")]
         inputs.forEach(element => element.value = "")
@@ -46,22 +46,24 @@ const ReviewForm = () => {
     const resetSite = () => {
         history.go(0)
     }
+
+
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div>
-                    <label htmlFor="title">Titel:</label>
-                    <input className="required" type="text" name="title" {...register('title', { required: true })} />
-                    {errors.title && <span className="error">Du skal indtaste en titel</span>}
-                </div>
-                <div>
-                    <label htmlFor="content">Anmeldelse:</label>
-                    <textarea className="required" name="content" id="" cols="30" rows="10" {...register('content', { required: true })}></textarea>
-                    {errors.comment && <span className="error">Du skal skrive en anmeldelse</span>}
-                </div>
-                <div>
-                    <button type="submit">Submit</button>
-                </div>
+            <form className={open ? 'review-form show' : 'review-form'} onSubmit={handleSubmit(onSubmit)}>
+                <section className="review-form-section">
+                    <div>
+                        <label htmlFor="title">Titel:</label>
+                        <input className="required" type="text" name="title" placeholder="Skriv din titel"{...register('title', { required: true })} />
+                        {errors.title && <span className="error">Du skal indtaste en titel</span>}
+                    </div>
+                    <div>
+                        <label htmlFor="content">Anmeldelse:</label>
+                        <textarea className="required" name="content" id="" rows="5" wrap="hard" placeholder="Skriv din anmeldelse"{...register('content', { required: true })}></textarea>
+                        {errors.comment && <span className="error">Du skal skrive en anmeldelse</span>}
+                    </div>
+                </section>
+                <button type="submit">Submit</button>
             </form>
         </>
     )

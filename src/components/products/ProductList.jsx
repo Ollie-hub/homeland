@@ -21,12 +21,12 @@ const ProductList = () => {
 
 
     return (
-        <article className="news-section">
+        <article className="product-section">
             <section className="news-grid">
                 {news.items && news.items.map((item, i) => {
                     if (i < 3) {
                         return (
-                            <Products data={item} />
+                            <Products data={item} key={item.id} />
                         )
                     }
                     else {

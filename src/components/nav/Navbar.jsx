@@ -14,17 +14,19 @@ const Navigation = () => {
   };
 
   return (
-    <nav>
-      <img src={Logo} alt="logo" className="logo"></img>
-      <button onClick={() => toggleClass()} className="hamburger" >
-        <FontAwesomeIcon icon={faBars} />
-      </button>
-      <ul className={`nav-ul ${open === true ? 'show' : ''}`}>
-        <li className="link"><Link to="/FrontPage">Forside</Link></li>
-        <li className="link"><Link to="/Housesforsale">Boliger til salg</Link></li>
-        <li className="link"><Link to="/Login">Login</Link></li>
-      </ul>
-    </nav >
+    <header>
+      <nav>
+        <img src={Logo} alt="logo" className="logo"></img>
+        <button onClick={() => toggleClass()} className="hamburger" >
+          <FontAwesomeIcon icon={faBars} />
+        </button>
+        <ul className={`nav-ul ${open === true ? 'show' : ''}`}>
+          <li className="link"><Link to="/FrontPage">Forside</Link></li>
+          <li className="link"><Link to="/Housesforsale">Boliger til salg</Link></li>
+          <li className="link"><Link to="/Login">Login</Link></li>
+        </ul>
+      </nav >
+    </header>
   )
 }
 

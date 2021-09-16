@@ -1,7 +1,8 @@
+import { Employee } from "../../components/employee/Employee";
 import { ImgSlider } from "../../components/imgslider/ImgSlider";
 import { NewsProducts } from "../../components/newsproducts/NewsProducts";
 import { Reviews } from "../../components/reviewsection/Reviews";
-
+import './frontpage.scss'
 
 
 const FrontPage = () => {
@@ -12,7 +13,7 @@ const FrontPage = () => {
                 <ImgSlider />
                 <NewsProducts />
                 <Reviews />
-
+                <Employee />
             </main>
         </>
     )

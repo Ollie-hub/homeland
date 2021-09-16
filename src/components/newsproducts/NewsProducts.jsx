@@ -25,7 +25,7 @@ const NewsProducts = () => {
                 {news.items && news.items.map((item, i) => {
                     if (i < 1) {
                         return (
-                            <ProductList data={item} />
+                            <ProductList data={item} key={item.id} />
                         )
                     }
                     else {

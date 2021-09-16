@@ -13,7 +13,7 @@ const ProductDetails = () => {
 
     return (
         <>
-            hej
+            Product details
         </>
     )
 

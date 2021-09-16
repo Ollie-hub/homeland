@@ -1,0 +1,69 @@
+@import '../../App.scss';
+
+.emp-title {
+    
+    margin-top:5%;
+}
+
+.emp-section {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+
+    .emp-content {
+        display: grid;
+        width: 300px;
+        height: 380px;
+        border: 1px solid #242424;
+        overflow: hidden;
+        margin: auto;
+
+        &:hover {
+            .emp-text {
+                position: relative;
+                top: -90px;
+                transition: 0.3s ease-in;
+            }
+        }
+        img {
+            width: 100%;
+            height: 380px;
+            object-fit: contain;
+        }
+        .emp-text {
+            position: relative;
+            top: -45px;
+            border: 1px solid black;
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: 0.3s ease-in;
+
+            div {
+                margin-bottom: 1%;
+                margin-left: 5%;
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 700px) { 
+
+    .emp-title {
+        margin: auto;
+        margin-left: 25%;
+        margin-top: 50px;
+    }
+    .emp-section {
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: repeat(4fr);
+        margin: auto;
+        .emp-content {
+            margin-top: 5%;
+        }
+    }
+}
+
+

@@ -9,7 +9,7 @@ const Products = (props) => {
     const history = useHistory()
     const { setHouseDetails } = useContext(AuthContext)
 
-
+    // smider dig over til produktens side når du klikker på den. 
     const handleClick = () => {
         history.push(`/Housesforsale/${item.address}`)
         setHouseDetails(item)
@@ -29,5 +29,6 @@ const Products = (props) => {
         </div>
     )
 }
+
 
 export { Products };

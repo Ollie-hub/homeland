@@ -33,11 +33,13 @@ const ReviewSection = (props) => {
         }
     }, [loginData, id])
 
+    //Checker loginData og filterer review listen ud i fra hvilken user der er logget ind (Sådan man ikke kan slette andre folks reviews)
     useEffect(() => {
         let userFilter = apiData && apiData.items.filter(item => item.user_id == loginData.user_id)
         setUser(userFilter)
     }, [apiData])
 
+    //fetch til at slette reviews 
     const deleteReview = async (reviewId) => {
         const url = `https://api.mediehuset.net/homelands/reviews/${reviewId}`
         try {

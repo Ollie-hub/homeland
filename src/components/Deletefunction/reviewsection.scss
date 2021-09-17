@@ -15,7 +15,6 @@
             font-size: 1.2rem;
             margin-bottom: 1%;
         }
-
         .reviews-button {
             margin-bottom: 2%;
             padding: 6px;
@@ -33,5 +32,15 @@
             }
         }
     }
+
+}
+
+@media screen and (max-width: 700px) { 
+    .my-reviews {
+        width: 80%;
+
+    }
+
+
 
 }

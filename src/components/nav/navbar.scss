@@ -2,7 +2,7 @@
 
 nav {
     display: grid;
-    position: sticky;
+    position: fixed;
     top: 0;
     grid-template-columns: auto 70%;
     justify-content: center;
@@ -11,6 +11,7 @@ nav {
     background-size: cover;
     height: 12vh;
     z-index: 2;
+    width: 100%;
 }
 
 .logo {
@@ -64,7 +65,7 @@ nav {
         flex-direction: column;
         position: absolute;
         top: 75px;
-        right: 0;
+        right: 30px;
         padding: 0;
         
     }

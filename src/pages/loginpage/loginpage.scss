@@ -4,8 +4,7 @@
     display: grid;
     grid-template-columns: 50% 50%;
     justify-content: center;
-    
-    margin-top: 5%;
+    margin-top: 15%;
     height: 100vh;
     div {
         margin-left: 5%;
@@ -14,5 +13,20 @@
     .login-section {
         height: 100vh;
         border-left: 1px solid black;
+    }
+}
+
+@media screen and (max-width: 700px) { 
+    .login-page {
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: auto auto;
+
+        .login-section {
+            border-left: none;
+            margin-left: 10%;
+            margin-top: 50px;
+        }
+    
     }
 }

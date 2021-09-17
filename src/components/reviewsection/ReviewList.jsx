@@ -10,7 +10,7 @@ const ReviewList = (props) => {
     const history = useHistory()
 
     const routeChange = () => {
-        history.push(``)
+        history.push(`/Login`)
 
     }
 
@@ -38,10 +38,10 @@ const ReviewList = (props) => {
     }
 
     useEffect(() => {
-        if (loginData) {
-            getData();
-        }
-    }, [loginData, id])
+
+        getData();
+
+    }, [])
 
 
     return (
@@ -58,7 +58,7 @@ const ReviewList = (props) => {
                                 <p>{item.user.firstname} {item.user.lastname}</p>
                             </section>
                             {loginData ? <button onClick={() => toggleClass()} className="reviewbutton">Skriv Andmeldelse</button> :
-                                <button onClick={this.routeChange}></button>}
+                                <button onClick={routeChange}>Log Ind for at skrive andmeldelse</button>}
                         </article>
 
 

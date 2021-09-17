@@ -7,9 +7,8 @@ import './navbar.scss'
 
 
 const Navigation = () => {
-
-  const [open, setOpen] = useState(false);
-  const toggleClass = () => {
+  const [open, setOpen] = useState(false); // Bruger useState til at gemme open og setOpen variabler. 
+  const toggleClass = () => { // funtion til at toggle class til hamburger meny
     setOpen(!open);
   };
 
@@ -17,10 +16,10 @@ const Navigation = () => {
     <header>
       <nav>
         <img src={Logo} alt="logo" className="logo"></img>
-        <button onClick={() => toggleClass()} className="hamburger" >
+        <button onClick={() => toggleClass()} className="hamburger" > {/*Onlick button til at åpne og lukke burger menuen */}
           <FontAwesomeIcon icon={faBars} />
         </button>
-        <ul className={`nav-ul ${open === true ? 'show' : ''}`}>
+        <ul className={`nav-ul ${open === true ? 'show' : ''}`}>  {/* Her gikker den om variablen "open" er true, hvis den er så putter den klassen "show" på "nav-ul" */}
           <li className="link"><Link to="/FrontPage">Forside</Link></li>
           <li className="link"><Link to="/Housesforsale">Boliger til salg</Link></li>
           <li className="link"><Link to="/Login">Login</Link></li>

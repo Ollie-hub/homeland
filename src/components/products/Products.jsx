@@ -22,7 +22,7 @@ const Products = (props) => {
             <p className="news-zip">{item.zipcode}, {item.city}</p>
             <p className="news-type">{item.type}</p>
             <div className="news-bottom-content">
-                <div className="news-energy">{item.energy_label_name}</div>
+                <div className={`news-energy ${item.energy_label_name}`}>{item.energy_label_name}</div>
                 <div className="news-info">{item.num_rooms} Værelser, {item.floor_space}m&#178;</div>
                 <div className="news-price">{item.price} DKK</div>
             </div>

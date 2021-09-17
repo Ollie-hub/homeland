@@ -2,6 +2,8 @@ import { useState, useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { AuthContext } from './AuthProvider'
 import { myFetch } from '../../helpers/fetch'
+import './login.scss'
+
 
 const Login = () => {
 
@@ -53,22 +55,22 @@ const Login = () => {
             {!loginData && !loginData.username ?
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div>
-                        <input type="text" id="username" name="username" {...register("username", { required: true })} placeholder="Brugernavn" />
+                        <input className="login-input" type="text" id="username" name="username" {...register("username", { required: true })} placeholder="Brugernavn" />
                         {errors.username && <span>Udfyld brugernavn</span>}
                     </div>
                     <div>
-                        <input type="password" id="password" name="password" {...register("password", { required: true })} placeholder="Adgangskode" />
+                        <input className="login-input" type="password" id="password" name="password" {...register("password", { required: true })} placeholder="Adgangskode" />
                         {errors.password && <span>Udfyld adgangskode</span>}
                     </div>
-                    <div>
-                        <button type="reset">Annuller</button>
-                        <button type="submit">Send</button>
+                    <div className="button-section">
+                        <button className="login-button" type="reset">Annuller</button>
+                        <button className="login-button" type="submit">Send</button>
                     </div>
                 </form>
                 :
                 <form>
-                    <p>Du er logget ind som {loginData.username}</p>
-                    <button onClick={() => { logOut() }}>Log ud</button>
+                    <p className="loggedin">Du er logget ind som {loginData.username}</p>
+                    <button className="login-button" onClick={() => { logOut() }}>Log ud</button>
                 </form>
             }
         </>

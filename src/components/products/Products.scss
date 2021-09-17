@@ -1,6 +1,8 @@
 @import '../../App.scss';
 
-
+.product-section {
+    margin-top: 100px
+}
 .news-content {
     @include ProductCards;
 
@@ -44,8 +46,31 @@
             justify-content: center;
             width: 20px;
             height: 20px;
-            background-color: $color-class-a; 
             color: white;
+
+            &.A {
+                background-color: $color-class-a;
+            }
+            
+            &.B {
+                background-color: $color-class-b;
+            }
+            
+            &.C {
+                background-color: $color-class-c;
+            }
+            
+            &.D {
+                background-color: $color-class-d;
+            }
+            
+            &.E {
+                background-color: $color-class-e;
+            }
+            
+            &.F {
+                background-color: $color-class-f;
+            }
         }
 
     }

@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
 import { myFetch } from "../../helpers/fetch";
-import { ProductList } from "../products/ProductList";
+import { Products } from "../products/Products";
 import './newsproducts.scss'
+
 const NewsProducts = () => {
 
     const [news, setNews] = useState([])
@@ -23,9 +24,9 @@ const NewsProducts = () => {
         <article className="news-section">
             <section className="news-grid">
                 {news.items && news.items.map((item, i) => {
-                    if (i < 1) {
+                    if (i < 3) {
                         return (
-                            <ProductList data={item} key={item.id} />
+                            <Products data={item} key={item.id} />
                         )
                     }
                     else {

@@ -1,7 +1,6 @@
 @import '../../App.scss';
 
 .emp-title {
-    
     margin-top:5%;
 }
 
@@ -15,7 +14,7 @@
     .emp-content {
         display: grid;
         width: 300px;
-        height: 380px;
+        height: 379px;
         border: 1px solid #242424;
         overflow: hidden;
         margin: auto;
@@ -23,8 +22,10 @@
         &:hover {
             .emp-text {
                 position: relative;
-                top: -90px;
+                top: -87px;
                 transition: 0.3s ease-in;
+                background-color: #242424;
+                color: #fff;
             }
         }
         img {

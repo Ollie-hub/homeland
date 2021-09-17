@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../components/login/AuthProvider";
 import { myFetch, myFetchDelete } from "../../helpers/fetch";
+import './reviewsection.scss';
+
 
 const ReviewSection = (props) => {
     const { loginData } = useContext(AuthContext)
@@ -49,15 +51,15 @@ const ReviewSection = (props) => {
 
 
     return (
-        <section>
+        <section className="Delete-reviews">
             <div>
                 <h3>Dine Reviews</h3>
             </div>
             {user && user.map((item, key, i) => {
                 return (
-                    <section key={key}>
-                        <li >{item.title}</li>
-                        <button type="button" onClick={(() => deleteReview(item.id))}>Slet kommentar</button>
+                    <section className="my-reviews" key={key}>
+                        <p className="reviews-title">{item.title}</p>
+                        <button className="reviews-button" type="button" onClick={(() => deleteReview(item.id))}>Slet kommentar</button>
                     </section>
                 )
             })}

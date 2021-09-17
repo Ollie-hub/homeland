@@ -1,0 +1,37 @@
+@import '../../App.scss'; 
+
+
+.Delete-reviews {
+    display: grid;
+    grid-template-rows: auto auto;
+    
+    .my-reviews {
+        display: grid;
+        grid-template-columns: 83% 17%;
+        margin-top: 1%;
+        border-bottom: 1px solid black;
+
+        .reviews-title {
+            font-size: 1.2rem;
+            margin-bottom: 1%;
+        }
+
+        .reviews-button {
+            margin-bottom: 2%;
+            padding: 6px;
+            width: 120px;
+            background-color: #242424;
+            color: #fff;
+            border: 0;
+            border-radius: 5px;
+
+            &:hover {
+                background-color: #fff;
+                color: #242424;
+                border: 1px solid #242424;
+                padding: 5px;
+            }
+        }
+    }
+
+}

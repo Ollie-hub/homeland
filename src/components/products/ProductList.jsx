@@ -24,14 +24,11 @@ const ProductList = () => {
         <article className="product-section">
             <section className="news-grid">
                 {news.items && news.items.map((item, i) => {
-                    if (i < 3) {
-                        return (
-                            <Products data={item} key={item.id} />
-                        )
-                    }
-                    else {
-                        return null
-                    }
+
+                    return (
+                        <Products data={item} key={item.id} />
+                    )
+
                 })
                 }
             </section>

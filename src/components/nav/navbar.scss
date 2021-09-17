@@ -35,6 +35,10 @@ nav {
         font-size: 28px;
         padding: 10px 20px;
         text-decoration: none; 
+
+        &:hover {
+            color: $brown;
+        }
         }
     }
 }
@@ -59,7 +63,7 @@ nav {
         width: 50vw;
         flex-direction: column;
         position: absolute;
-        top: 90px;
+        top: 75px;
         right: 0;
         padding: 0;
         

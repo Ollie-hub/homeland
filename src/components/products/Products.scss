@@ -39,7 +39,7 @@
         @include CardContent;
         display: grid;
         grid-template-columns: auto auto auto;
-        
+        margin-bottom: 10%;
 
         .news-energy {
             display: grid;
@@ -71,6 +71,9 @@
             &.F {
                 background-color: $color-class-f;
             }
+            &.G {
+                background-color: $color-class-g;
+            }
         }
 
     }
@@ -85,7 +88,7 @@
     .news-content {
         width: 70vw;
         height: 80%;
-        
+        margin-left: 0;
         .news-addresse {
           font-size: 1rem;
       }

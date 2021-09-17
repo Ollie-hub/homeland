@@ -34,7 +34,7 @@ const ReviewSection = (props) => {
     }, [loginData, id])
 
     useEffect(() => {
-        let userFilter = apiData && apiData.items.filter(item => item.user.username === "olju")
+        let userFilter = apiData && apiData.items.filter(item => item.user_id == loginData.user_id)
         setUser(userFilter)
     }, [apiData])
 

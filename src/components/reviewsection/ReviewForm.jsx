@@ -39,6 +39,7 @@ const ReviewForm = () => {
             console.error(error);
         }
     }
+    //reseter inputs efter submit
     const resetInputs = () => {
         const inputs = [...document.querySelectorAll(".required")]
         inputs.forEach(element => element.value = "")

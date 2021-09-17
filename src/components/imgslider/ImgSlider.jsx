@@ -19,7 +19,7 @@ const ImgSlider = () => {
 
 
     const [slideIndex, setSlideIndex] = useState(1)
-
+    //slide function for next 
     const nextSlide = () => {
         if (slideIndex !== sliderData.items.length) {
             setSlideIndex(slideIndex + 1)
@@ -28,7 +28,7 @@ const ImgSlider = () => {
             setSlideIndex(1)
         }
     }
-
+    //slide function til previous
     const prevSlide = () => {
         if (slideIndex !== 1) {
             setSlideIndex(slideIndex - 1)
@@ -41,14 +41,8 @@ const ImgSlider = () => {
         <article className="container-slider">
             {sliderData.items && sliderData.items.map((data, i) => {
                 return (
-                    <div
-                        key={i}
-                        className={slideIndex === i + 1 ? "slide active-anim" : "slide"}
-                    >
-                        <img
-                            src={data.image[1]}
-                            alt="bannerimg"
-                        />
+                    <div key={i} className={slideIndex === i + 1 ? "slide active-anim" : "slide"}>
+                        <img src={data.image[1]} alt="bannerimg" />
                     </div>
                 )
             })}

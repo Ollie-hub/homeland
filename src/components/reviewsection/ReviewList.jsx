@@ -8,12 +8,12 @@ const ReviewList = (props) => {
     const [apiData, setApiData] = useState()
     const { loginData, open, setOpen } = useContext(AuthContext)
     const history = useHistory()
-
+    // smider der over til login hvis du ikke er logget ind
     const routeChange = () => {
         history.push(`/Login`)
 
     }
-
+    //class toggle til at vise review formen
     const toggleClass = () => {
         setOpen(!open)
         console.log(open)
@@ -38,9 +38,7 @@ const ReviewList = (props) => {
     }
 
     useEffect(() => {
-
         getData();
-
     }, [])
 
 

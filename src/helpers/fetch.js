@@ -17,6 +17,7 @@ const myFetch = async (url, options = null) => {
     }
 }
 
+//standard function til Fetch med DELETE som method 
 const myFetchDelete = async (url, options = null, key) => {
 
     if (!options) {
